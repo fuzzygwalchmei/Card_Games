@@ -2,19 +2,30 @@ from random import shuffle
 
 
 class PlayingCards:
-
+    """
+    Class to handle card related items
+    Functions for shuffling and dealing
+    """
     def __init__(self):
         self.deck = [card + suit for card in "A234" for suit in "SC"]
         self.discard = []
         self.hand = []
 
     def myshuffle(self):
+        """
+        Function to shuffle discard pile and place it at the bottom of the remaining deck.
+        :return:
+        """
         shuffle(self.discard)
         self.deck = self.deck + self.discard
         self.discard = []
 
     def draw_cards(self, num_card):
-
+        """
+        Function to deal a defined number of cards to the hand
+        :param num_card:
+        :return:
+        """
         for card in range(num_card):
             card = self.deck.pop()
             self.hand.append(card)
